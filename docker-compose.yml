@@ -1,0 +1,28 @@
+version: "3.6"
+
+services:
+#  scheduler-service:
+#    container_name: api-scheduler
+#    build:
+#      context: ./
+#      dockerfile: ./Dockerfile
+#    ports:
+#      - 8083:8083
+#    networks:
+#      - spring-kafka-microservices-lab_sugaya-lab-network
+#    depends_on:
+#      - mongodb
+
+  mongodb:
+    container_name: mongodb_schedule
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - /home/sugaya/Projects/MongoDB:/data/db2
+    networks:
+      - spring-kafka-microservices-lab_sugaya-lab-network
+
+networks:
+  spring-kafka-microservices-lab_sugaya-lab-network:
+    external: true
